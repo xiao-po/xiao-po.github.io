@@ -48,9 +48,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -83,27 +83,24 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="hexo-server-命令没有反应"><a href="#hexo-server-命令没有反应" class="headerlink" title="hexo server 命令没有反应"></a>hexo server 命令没有反应</h3><blockquote>
-<p>   这个问题是因为没有安装 hexo-server 模块导致的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-server -g</div></pre></td></tr></table></figure></p>
-</blockquote>
-<h3 id="“cannot-get-“"><a href="#“cannot-get-“" class="headerlink" title="“cannot get / “"></a>“cannot get / “</h3><blockquote>
-<p>   这个问题是没有安装 hexo 所需的模块导致的。在 hexo 博客的文件夹使用以下命令。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install</div></pre></td></tr></table></figure></p>
-</blockquote>
-<h3 id="hexo-deploy-命令没有反应"><a href="#hexo-deploy-命令没有反应" class="headerlink" title="hexo deploy 命令没有反应"></a>hexo deploy 命令没有反应</h3><blockquote>
-<p>   这个问题是因为没有安装 hexo-server 模块导致的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-deployer-git -g</div></pre></td></tr></table></figure></p>
-</blockquote>
-<h3 id="hexo-deploy-命令出现问题"><a href="#hexo-deploy-命令出现问题" class="headerlink" title="hexo deploy 命令出现问题"></a>hexo deploy 命令出现问题</h3><blockquote>
-<p>   这个问题分很多情况，可能出自于 git 客户端设置账号的时候并没有设置好 ssh-key 导致无法上传。参考：<a href="http://www.forwhat.cn/post-144.html" target="_blank" rel="external">添加SSH key</a></p>
-<p>  另外一个原因就是 yml 设置文件的时候，你使用的 repo 不是 git@github.com:yourname/yourname.github.io.git 形式。</p>
-</blockquote>
-
+        <p>这里记载了部分我们可能遇见的 hexo 搭建中的错误。</p>
+<ul>
+<li>hexo server 命令没有反应</li>
+<li>“cannot get / “</li>
+<li>hexo deploy 命令没有反应</li>
+</ul>
+        
+          <p class="article-more-link">
+            <a href="/2017/05/06/hexo-安装排错/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/06/hexo-安装排错/" data-id="cj2cs0fy60000f8und32yq96a" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/05/06/hexo-安装排错/" data-id="cj2cs3xzv0000lguncimdl8qy" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/debug/">debug</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/排错/">排错</a></li></ul>
 
     </footer>
   </div>
@@ -135,43 +132,18 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>  虽然搭建一个简单的HEXO并不难，但是我还是尝试写一篇简单的日志，学习了这么久第一次开始总结自己的经历。</p>
-<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><h3 id="环境安装"><a href="#环境安装" class="headerlink" title="环境安装"></a>环境安装</h3><ol>
-<li><p>node.js</p>
-<p>因为我们使用的 HEXO 需要 node.js 以及 npm 包管理工具的支持。<br>所以我们需要去 node.js 的官网下载 node 环境。<a href="https://nodejs.org/en/" target="_blank" rel="external">下载</a></p>
-</li>
-<li><p>HEXO </p>
-<p> 安装 HEXO 的步骤为在CMD里面执行</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">npm install HEXO --save</div><div class="line">```    </div><div class="line"></div><div class="line">但是因为部分原因，中国使用 npm 默认源是十分慢的，我推荐 npm 淘宝镜像站以及淘宝 cnpm ，听说最近又有 yarn 开始流行成为新的包管理工具，这是后话了。参考：[NPM淘宝](https://npm.taobao.org)</div><div class="line"></div><div class="line">如果你已经执行完了上面的步骤，那么接下来继续。</div></pre></td></tr></table></figure>
-<p> npm install hexo-server –save</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">或者使用淘宝 cnpm 。</div></pre></td></tr></table></figure>
-<p> cnpm install hexo-server –save</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">3. git 工具</div><div class="line"></div><div class="line">    git 工具是我们上传我们 HEXO 博客去 github 的重要工具，工具在 github 官网就有下载。</div><div class="line"></div><div class="line">    当然在此之前你还需要一个 github 账号。</div><div class="line"></div><div class="line">4. hexo-deployer-git</div><div class="line"></div><div class="line">    通过 hexo 去发布 git 项目是需要这个工具的，这个没有安装会引起使用 ` hexo d` 或者 ` hexo deploy` 失效没有反应。</div></pre></td></tr></table></figure>
-<p> npm install hexo-deployer-git -g</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">### 开始搭建</div><div class="line"></div><div class="line">1. 建立一个属于自己的 hexo 文件夹，专门用来存放我们的 hexo 博客。</div><div class="line"></div><div class="line">2. 打开 CMD 并且移动到这个文件夹， 使用 ` hexo init ` 命令完成 hexo博客的初始化。</div><div class="line"></div><div class="line">3. 之后我们可以看见我们的 hexo 博客下面有个 package.json ，敏感的人就知道我们的 hexo 博客是需要使用 ` npm install` 或者使用淘宝cnpm ` cnpm install`，完成对依赖模块添加。</div><div class="line"></div><div class="line">4. 初始化之后我们可以开始生成页面了，使用 ` hexo generate`或者 ` hexo g`，可以生成 hexo 博客的页面。</div><div class="line"></div><div class="line">5. 于是乎，我们的 hexo 博客初始已经完成了，这时候我们可以使用 ` hexo server`，在本地架设服务器观看我们的博客效果，默认地址 http://localhost:4000</div><div class="line"></div><div class="line">### 开始写博客</div><div class="line"></div><div class="line">1. 在命令行中输入 ` hexo new &quot;标题&quot;`, hexo 会在 source 文件夹下面的 _post 里面生成一个md文件，标题就是我们生成的标题。</div><div class="line"></div><div class="line">2. 开始了解 markdown 语法并且使用 markdown 语法去写一篇博客。参考： [Markdown 语法说明](http://www.appinn.com/markdown/)</div><div class="line"></div><div class="line">3. 执行` hexo generate`或者 ` hexo g` 开始生成我们的 hexo 博客文章，再运行 ` hexo server` 你就能看见你新写好的博客文章了。</div><div class="line"></div><div class="line">### 发布</div><div class="line"></div><div class="line">1. 首先我们需要建立一个 github Pages 仓库，并且仓库的名称需要是 yourname.github.io ，其中 yourname 就是你的 github 的 username 。参考：[github Pages](https://pages.github.com/)</div><div class="line"></div><div class="line">2. 配置 yml 中关于 github 部分的设置。</div></pre></td></tr></table></figure>
-<p> deploy:</p>
-<pre><code>type: git
-
-repo: git@github.com:yourname/yourname.github.io.git
-
-branch: master
-</code></pre><p>```</p>
-</li>
-<li><p>每次在 <code>hexo generate</code> 之后我们就可以使用 <code>hexo deploy</code> 去发布我们的 hexo 博客。</p>
-</li>
-<li><p>至此我们的博客就能搭建完成了，报错的话我会另起一篇博客。</p>
-</li>
-</ol>
-<ul>
-<li>如果有问题或者交流可以发向本人的 QQ ：2409247823 。当然，也可以向我的 gmail 发送邮件， gmail 地址 wly19960911@gmail.com </li>
-</ul>
-
+        
+          <p class="article-more-link">
+            <a href="/2017/05/05/first/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/05/first/" data-id="cj2cs0fz80003f8un9j96kvr3" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/05/05/first/" data-id="cj2cs3y050001lgun7bcl03kt" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/build/">build</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/搭建/">搭建</a></li></ul>
 
     </footer>
   </div>
@@ -190,9 +162,9 @@ branch: master
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Mot-clés</h3>
+    <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/build/">build</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/debug/">debug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/排错/">排错</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/搭建/">搭建</a></li></ul>
     </div>
   </div>
 
@@ -200,9 +172,9 @@ branch: master
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Nuage de mot-clés</h3>
+    <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/hexo/" style="font-size: 10px;">hexo</a>
+      <a href="/tags/build/" style="font-size: 10px;">build</a> <a href="/tags/debug/" style="font-size: 10px;">debug</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/排错/" style="font-size: 10px;">排错</a> <a href="/tags/搭建/" style="font-size: 10px;">搭建</a>
     </div>
   </div>
 
@@ -219,7 +191,7 @@ branch: master
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Articles récents</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
         
@@ -244,7 +216,7 @@ branch: master
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 John Doe<br>
-      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>

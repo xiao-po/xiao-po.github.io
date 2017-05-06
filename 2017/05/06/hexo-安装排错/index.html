@@ -5,17 +5,17 @@
   
   <title>hexo 安装排错 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="hexo server 命令没有反应    这个问题是因为没有安装 hexo-server 模块导致的。1npm install hexo-server -g  “cannot get / “    这个问题是没有安装 hexo 所需的模块导致的。在 hexo 博客的文件夹使用以下命令。1npm install  hexo deploy 命令没有反应    这个问题是因为没有安装 hexo-ser">
-<meta name="keywords" content="hexo">
+  <meta name="description" content="这里记载了部分我们可能遇见的 hexo 搭建中的错误。  hexo server 命令没有反应 “cannot get / “ hexo deploy 命令没有反应">
+<meta name="keywords" content="hexo,排错,debug">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo 安装排错">
 <meta property="og:url" content="http://yoursite.com/2017/05/06/hexo-安装排错/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="hexo server 命令没有反应    这个问题是因为没有安装 hexo-server 模块导致的。1npm install hexo-server -g  “cannot get / “    这个问题是没有安装 hexo 所需的模块导致的。在 hexo 博客的文件夹使用以下命令。1npm install  hexo deploy 命令没有反应    这个问题是因为没有安装 hexo-ser">
-<meta property="og:updated_time" content="2017-05-06T04:35:18.615Z">
+<meta property="og:description" content="这里记载了部分我们可能遇见的 hexo 搭建中的错误。  hexo server 命令没有反应 “cannot get / “ hexo deploy 命令没有反应">
+<meta property="og:updated_time" content="2017-05-06T05:03:59.878Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo 安装排错">
-<meta name="twitter:description" content="hexo server 命令没有反应    这个问题是因为没有安装 hexo-server 模块导致的。1npm install hexo-server -g  “cannot get / “    这个问题是没有安装 hexo 所需的模块导致的。在 hexo 博客的文件夹使用以下命令。1npm install  hexo deploy 命令没有反应    这个问题是因为没有安装 hexo-ser">
+<meta name="twitter:description" content="这里记载了部分我们可能遇见的 hexo 搭建中的错误。  hexo server 命令没有反应 “cannot get / “ hexo deploy 命令没有反应">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -53,9 +53,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -86,27 +86,26 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="hexo-server-命令没有反应"><a href="#hexo-server-命令没有反应" class="headerlink" title="hexo server 命令没有反应"></a>hexo server 命令没有反应</h3><blockquote>
-<p>   这个问题是因为没有安装 hexo-server 模块导致的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-server -g</div></pre></td></tr></table></figure></p>
-</blockquote>
-<h3 id="“cannot-get-“"><a href="#“cannot-get-“" class="headerlink" title="“cannot get / “"></a>“cannot get / “</h3><blockquote>
-<p>   这个问题是没有安装 hexo 所需的模块导致的。在 hexo 博客的文件夹使用以下命令。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install</div></pre></td></tr></table></figure></p>
-</blockquote>
-<h3 id="hexo-deploy-命令没有反应"><a href="#hexo-deploy-命令没有反应" class="headerlink" title="hexo deploy 命令没有反应"></a>hexo deploy 命令没有反应</h3><blockquote>
-<p>   这个问题是因为没有安装 hexo-server 模块导致的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-deployer-git -g</div></pre></td></tr></table></figure></p>
-</blockquote>
-<h3 id="hexo-deploy-命令出现问题"><a href="#hexo-deploy-命令出现问题" class="headerlink" title="hexo deploy 命令出现问题"></a>hexo deploy 命令出现问题</h3><blockquote>
-<p>   这个问题分很多情况，可能出自于 git 客户端设置账号的时候并没有设置好 ssh-key 导致无法上传。参考：<a href="http://www.forwhat.cn/post-144.html" target="_blank" rel="external">添加SSH key</a></p>
-<p>  另外一个原因就是 yml 设置文件的时候，你使用的 repo 不是 git@github.com:yourname/yourname.github.io.git 形式。</p>
-</blockquote>
+        <p>这里记载了部分我们可能遇见的 hexo 搭建中的错误。</p>
+<ul>
+<li>hexo server 命令没有反应</li>
+<li>“cannot get / “</li>
+<li>hexo deploy 命令没有反应</li>
+</ul>
+<a id="more"></a>
+<h2 id="hexo-server-命令没有反应"><a href="#hexo-server-命令没有反应" class="headerlink" title="hexo server 命令没有反应"></a>hexo server 命令没有反应</h2><p>　　这个问题是因为没有安装 hexo-server 模块导致的。<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-server -g</div></pre></td></tr></table></figure></p>
+<h2 id="“cannot-get-“"><a href="#“cannot-get-“" class="headerlink" title="“cannot get / “"></a>“cannot get / “</h2><p>　　这个问题是没有安装 hexo 所需的模块导致的。在 hexo 博客的文件夹使用以下命令。<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install</div></pre></td></tr></table></figure></p>
+<h2 id="hexo-deploy-命令没有反应"><a href="#hexo-deploy-命令没有反应" class="headerlink" title="hexo deploy 命令没有反应"></a>hexo deploy 命令没有反应</h2><p>　　这个问题是因为没有安装 hexo-server 模块导致的。<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-deployer-git -g</div></pre></td></tr></table></figure></p>
+<h2 id="hexo-deploy-命令出现问题"><a href="#hexo-deploy-命令出现问题" class="headerlink" title="hexo deploy 命令出现问题"></a>hexo deploy 命令出现问题</h2><p>　　这个问题分很多情况，可能出自于 git 客户端设置账号的时候并没有设置好 ssh-key 导致无法上传。参考：<a href="http://www.forwhat.cn/post-144.html" target="_blank" rel="external">添加SSH key</a></p>
+<p>　　另外一个原因就是 yml 设置文件的时候，你使用的 repo 不是 git@github.com:yourname/yourname.github.io.git 形式。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/06/hexo-安装排错/" data-id="cj2cs0fy60000f8und32yq96a" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/05/06/hexo-安装排错/" data-id="cj2cs3xzv0000lguncimdl8qy" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/debug/">debug</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/排错/">排错</a></li></ul>
 
     </footer>
   </div>
@@ -116,7 +115,7 @@
   
   
     <a href="/2017/05/05/first/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Ancien</strong>
+      <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">搭建HEXO</div>
     </a>
   
@@ -134,9 +133,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Mot-clés</h3>
+    <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/build/">build</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/debug/">debug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/排错/">排错</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/搭建/">搭建</a></li></ul>
     </div>
   </div>
 
@@ -144,9 +143,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Nuage de mot-clés</h3>
+    <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/hexo/" style="font-size: 10px;">hexo</a>
+      <a href="/tags/build/" style="font-size: 10px;">build</a> <a href="/tags/debug/" style="font-size: 10px;">debug</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/排错/" style="font-size: 10px;">排错</a> <a href="/tags/搭建/" style="font-size: 10px;">搭建</a>
     </div>
   </div>
 
@@ -163,7 +162,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Articles récents</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
         
@@ -188,7 +187,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 John Doe<br>
-      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
