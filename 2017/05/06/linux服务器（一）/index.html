@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>从零开始的Linux服务器使用(一) | XiaoPo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="&amp;nbsp;其实 Linux 很多人都无从下手，或者说习惯了 GUI 图形操作界面的 windows ，对不习惯的 Linux 环境感到陌生同时畏惧。 &amp;nbsp;所以在这里我开始以我的理解去教学，不是系统教学，但是可以在一定了解的情况下去实现 Linux 的使用。 &amp;nbsp;因为基于个人了解，如果有错误之处联系本人，本人一定会纠正的。">
+<meta name="keywords" content="搭建,build,linux,网页服务器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从零开始的Linux服务器使用(一)">
+<meta property="og:url" content="https://xiao-po.github.io/2017/05/06/linux服务器（一）/index.html">
+<meta property="og:site_name" content="XiaoPo">
+<meta property="og:description" content="&amp;nbsp;其实 Linux 很多人都无从下手，或者说习惯了 GUI 图形操作界面的 windows ，对不习惯的 Linux 环境感到陌生同时畏惧。 &amp;nbsp;所以在这里我开始以我的理解去教学，不是系统教学，但是可以在一定了解的情况下去实现 Linux 的使用。 &amp;nbsp;因为基于个人了解，如果有错误之处联系本人，本人一定会纠正的。">
+<meta property="og:image" content="https://xiao-po.github.io/css/images/xshellforcreate.png">
+<meta property="og:image" content="https://xiao-po.github.io/css/images/xshellforcreate1.png">
+<meta property="og:updated_time" content="2017-05-06T13:17:14.038Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="从零开始的Linux服务器使用(一)">
+<meta name="twitter:description" content="&amp;nbsp;其实 Linux 很多人都无从下手，或者说习惯了 GUI 图形操作界面的 windows ，对不习惯的 Linux 环境感到陌生同时畏惧。 &amp;nbsp;所以在这里我开始以我的理解去教学，不是系统教学，但是可以在一定了解的情况下去实现 Linux 的使用。 &amp;nbsp;因为基于个人了解，如果有错误之处联系本人，本人一定会纠正的。">
+<meta name="twitter:image" content="https://xiao-po.github.io/css/images/xshellforcreate.png">
+  
+    <link rel="alternate" href="/atom.xml" title="XiaoPo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">XiaoPo</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">定期分享学习文章，顺带喜好音乐也是会推荐的。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://xiao-po.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-linux服务器（一）" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/06/linux服务器（一）/" class="article-date">
+  <time datetime="2017-05-06T11:03:40.182Z" itemprop="datePublished">2017-05-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      从零开始的Linux服务器使用(一)
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&nbsp;其实 Linux 很多人都无从下手，或者说习惯了 GUI 图形操作界面的 windows ，对不习惯的 Linux 环境感到陌生同时畏惧。</p>
+<p>&nbsp;所以在这里我开始以我的理解去教学，不是系统教学，但是可以在一定了解的情况下去实现 Linux 的使用。</p>
+<p>&nbsp;因为基于个人了解，如果有错误之处联系本人，本人一定会纠正的。</p>
+<a id="more"></a>
+<p>&nbsp;<strong>我不是一个系统的教学过程，但是我可以保证一定程度上你能使用 Linux 系统以及对环境的部署， Linux 的内容还有很多很多，充分理解还是需要努力自己查询相关更详细的具体命令和文档。</strong></p>
+<p>&nbsp;我们先来对 Linux 相关的理解点概念， Linux 是类Unix操作系统，我们很多时候看见一个 Linux 只是一个命令行操纵的系统，亦或是在大学接触过简单的　Liunx 课程教学使用过 RedHat 的 RHEL 系统，那是有 GUI 图形界面的一个 Linux 操作系统。</p>
+<p>&nbsp;其实 Linux 和 windows 一样，能使用 GUI 操作界面，但是我们为什么不用 Linux 的图形界面呢？效率低下加上远程控制带宽消耗十分大， Linux 的图形操作界面更适合的是开发以及办公，对于我们开发部署应用做网页后台服务器的 Linux 更需要有命令行这种高效的手段。</p>
+<p>&nbsp;那么我们开始进入正文，以下所有的操作是基于 <strong>CentOS 7.0</strong> 或者 <strong>CentOS 7.2</strong>。</p>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>&nbsp;教学之前，你需要有一台相应的 Linux 服务器以及相应的软件去做 Linux 的教学。</p>
+<ul>
+<li><strong>Linux 服务器</strong></li>
+</ul>
+<p>&nbsp;我推荐使用阿里云学生服务器(<a href="https://promotion.aliyun.com/ntms/campus2017.html" target="_blank" rel="external">入口</a>)，或者使用腾讯云的学生服务器(<a href="https://www.qcloud.com/act/campus" target="_blank" rel="external">入口</a>)。对于动辄几十元乃至上百元一个月的这已经很优惠了，至于为什么坚持使用云服务器这是因为给以后的部署带来更简单的体验。</p>
+<ul>
+<li><strong>Xshell</strong> 或者 <strong>Putty</strong></li>
+</ul>
+<p>&nbsp;这均属于远程 SSH 工具，个人更推荐 Xshell ，因为 Xshell 功能更强大支持多窗口并且支持中文。</p>
+<ul>
+<li><strong>Winscp</strong></li>
+</ul>
+<p>&nbsp;WinSCP 是一个 Windows 环境下使用的 SSH 的开源图形化 SFTP 客户端。能很好的管理我们的服务器的文件夹。</p>
+<h2 id="服务器的购买与连接。"><a href="#服务器的购买与连接。" class="headerlink" title="服务器的购买与连接。"></a>服务器的购买与连接。</h2><p>&nbsp;我们进入相应的服务器购买页面，网站一定会给出我们需要设置的密码，这个是很重要的。</p>
+<p>&nbsp;然后我们打开 <strong>Xshell / Putty</strong> ，我们以 Xshell 为例。</p>
+<p><img src="/css/images/xshellforcreate.png" alt="xshell界面"></p>
+<p><img src="/css/images/xshellforcreate1.png" alt="创建连接界面"></p>
+<p>&nbsp;创建连接界面我们可以看见新建会话，这个是我们给这个连接起的名字，协议是默认使用 <strong>SSH</strong> 的，<strong>主机</strong>就是指 <strong>HOST</strong> ，这个词以后可能会看见很多遍，也就是指域名或者就是 IP。端口默认 <strong>22</strong> 。</p>
+<p>&nbsp;设置好了的话，我们使用名字为 root 的用户登录，密码是你自己购买的时候设置登陆后就能看见我们的命令行界面了。</p>
+<pre><code>Welcome to Alibaba Cloud Elastic Compute Service !
+[root@XXX ~]# 
+</code></pre><p>&nbsp; <code>[root@XXX ~]#</code>中 <strong>root</strong> 指的是 <strong>root</strong> 用户。 <strong>~</strong> 指的是 <strong>/root</strong> 目录， <strong>#</strong> 指的是当前是 管理员模式，如果是 <strong>$</strong> 就是普通用户模式。</p>
+<h2 id="Linux-简单的文件操作命令"><a href="#Linux-简单的文件操作命令" class="headerlink" title="Linux 简单的文件操作命令"></a>Linux 简单的文件操作命令</h2><ul>
+<li><strong>cd</strong> 命令</li>
+</ul>
+<p>&nbsp;cd 是一个移动到所在文件夹的命令，后面接路径，其中路径分绝对路径以及相对路径。使用 <code>cd ..</code> 能返回上一级的目录。使用 <code>cd ~</code> 能移动到 /root 目录。使用 <code>cd /</code> 能移动到 Linux 根目录。</p>
+<ul>
+<li>相对路径、绝对路径</li>
+</ul>
+<p>&nbsp;相对路径，是指基于当前文件夹开始的路径，比如当前文件夹是 root ，使用 <code>cd test</code>，则能移动到 /root/test 文件夹。绝对路径，是指基于系统根目录开始的路径，如果我们要移动到 /root/test 路径，则需要使用 <code>cd /root/test</code>。 ~ 是指 /root 目录，单独使用 / 是指系统根目录，这是几个常用的目录标识符。</p>
+<ul>
+<li><strong>ls</strong> 命令</li>
+</ul>
+<p>&nbsp;<strong>ls</strong> 命令能列出本路径下所有的文件，其中<strong>蓝色</strong>的文件夹，而<strong>绿色</strong>的是可执行文件。</p>
+<ul>
+<li><strong>mkdir</strong> 命令</li>
+</ul>
+<p>&nbsp;<strong>mkdir</strong> 命令能创建一个文件夹，能使用相对路径或者绝对路径。</p>
+<ul>
+<li><strong>rm</strong> 命令</li>
+</ul>
+<p>&nbsp;<strong>rm</strong> 命令能删除文件或者文件夹，能使用相对路径或者绝对路径。<code>rm -rf [路径]</code>能删除一个文件夹。<code>rm -f [路径]</code>能删除一个文件。</p>
+<ul>
+<li><strong>mv</strong> 命令</li>
+</ul>
+<p>&nbsp;mv 命令是移动 文件/文件夹 的命令，但是也可以用来修改文件或者文件夹的名称。使用 <code>mv /root/test /home/test</code> 能把在 <strong>/root</strong> 路径下名字叫 test 的文件夹移动到 /home 路径下的 <strong>test</strong> 文件夹。使用 <code>mv /root/test /root/fool</code> 能把 <strong>/root</strong> 路径下的 <strong>test</strong> 文件夹改名成为 <strong>fool</strong>。其实 <strong>mv</strong> 命令具体理解应该把 第一个参数路径下的文件移动到第二个参数的路径并且以第二个参数为名字。</p>
+<ul>
+<li>ps 命令</li>
+</ul>
+<p>&nbsp;ps 命令是能查看当前进程的命令，执行 <code>ps -e</code>能看见终端列出一个列表，这个列表的第一行是进程的 pid，第二行是 tty（具体我也没有去理解），第三行是 time ，运行时间。第四行是 cmd ，运行使用的命令，但是 <code>ps -e</code>展示的命令行是没有具体参数的，如需更详细的信息可以使用 <code>ps -ef</code>。</p>
+<ul>
+<li>vi 命令</li>
+</ul>
+<p>&nbsp;vi 命令是一个文件编辑器的命令，我们使用 Linux 会接触到大量的程序配置的编辑。但是，我们只需要知道一部分就能适合大量的场景。<code>vi [路径]</code> 是能编辑某个文件夹，然后我们进入 vi 编辑器的场景。</p>
+<p>&nbsp;一开始是最后一行是什么都没有的，这个是 命令行模式，在这种模式下我们能进行删除，不能插入。我们在此时按下键盘上的 <strong>i</strong> ，我们能进入 vi 编辑器的 插入模式。同时最底下一行会出现 <code>--insert--</code> ，此时我们能对文件开始插入删除，我们再按 esc 键，我们能退回到 命令行模式 。</p>
+<p>&nbsp;同时按 : 我们能进入底行模式，可以输入 <code>:q</code> (退出)、 <code>:w</code>（保存）、　<code>:wq</code>（保存并且退出）、 <code>:x</code>（保存并且退出）等命令，同时如果你修改了文件但是没有保存的话，退出需要使用 <code>:q!</code>命令， ! 代表了强制的意思。以后还会接触到，最后我们还有个简单的键位需要学习 – <strong>G</strong> ， G一定要大写，使用这个我们可以直接跳到文件的末尾，这对我们查看日志是一个很轻松的命令。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://xiao-po.github.io/2017/05/06/linux服务器（一）/" data-id="cj2d6ajkn00007cungmmx9pt9" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/build/">build</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/搭建/">搭建</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网页服务器/">网页服务器</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/05/06/hexo-安装排错/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">hexo 安装排错</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/build/">build</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/debug/">debug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/排错/">排错</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/搭建/">搭建</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网页服务器/">网页服务器</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/build/" style="font-size: 20px;">build</a> <a href="/tags/debug/" style="font-size: 10px;">debug</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/排错/" style="font-size: 10px;">排错</a> <a href="/tags/搭建/" style="font-size: 20px;">搭建</a> <a href="/tags/网页服务器/" style="font-size: 10px;">网页服务器</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/05/06/linux服务器（一）/">从零开始的Linux服务器使用(一)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/06/hexo-安装排错/">hexo 安装排错</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/05/first/">搭建HEXO</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 xiaopo(wly19960911#gmail.com)<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
