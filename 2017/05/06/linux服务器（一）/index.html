@@ -6,7 +6,7 @@
   <title>从零开始的Linux服务器使用(一) | XiaoPo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="&amp;nbsp;其实 Linux 很多人都无从下手，或者说习惯了 GUI 图形操作界面的 windows ，对不习惯的 Linux 环境感到陌生同时畏惧。 &amp;nbsp;所以在这里我开始以我的理解去教学，不是系统教学，但是可以在一定了解的情况下去实现 Linux 的使用。 &amp;nbsp;因为基于个人了解，如果有错误之处联系本人，本人一定会纠正的。">
-<meta name="keywords" content="搭建,build,linux,网页服务器">
+<meta name="keywords" content="linux,搭建,build,网页服务器">
 <meta property="og:type" content="article">
 <meta property="og:title" content="从零开始的Linux服务器使用(一)">
 <meta property="og:url" content="https://xiao-po.github.io/2017/05/06/linux服务器（一）/index.html">
@@ -14,7 +14,7 @@
 <meta property="og:description" content="&amp;nbsp;其实 Linux 很多人都无从下手，或者说习惯了 GUI 图形操作界面的 windows ，对不习惯的 Linux 环境感到陌生同时畏惧。 &amp;nbsp;所以在这里我开始以我的理解去教学，不是系统教学，但是可以在一定了解的情况下去实现 Linux 的使用。 &amp;nbsp;因为基于个人了解，如果有错误之处联系本人，本人一定会纠正的。">
 <meta property="og:image" content="https://xiao-po.github.io/css/images/xshellforcreate.png">
 <meta property="og:image" content="https://xiao-po.github.io/css/images/xshellforcreate1.png">
-<meta property="og:updated_time" content="2017-05-06T13:22:17.516Z">
+<meta property="og:updated_time" content="2017-05-08T12:03:57.036Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从零开始的Linux服务器使用(一)">
 <meta name="twitter:description" content="&amp;nbsp;其实 Linux 很多人都无从下手，或者说习惯了 GUI 图形操作界面的 windows ，对不习惯的 Linux 环境感到陌生同时畏惧。 &amp;nbsp;所以在这里我开始以我的理解去教学，不是系统教学，但是可以在一定了解的情况下去实现 Linux 的使用。 &amp;nbsp;因为基于个人了解，如果有错误之处联系本人，本人一定会纠正的。">
@@ -148,6 +148,10 @@
 </ul>
 <p>&nbsp;mv 命令是移动 文件/文件夹 的命令，但是也可以用来修改文件或者文件夹的名称。使用 <code>mv /root/test /home/test</code> 能把在 <strong>/root</strong> 路径下名字叫 test 的文件夹移动到 /home 路径下的 <strong>test</strong> 文件夹。使用 <code>mv /root/test /root/fool</code> 能把 <strong>/root</strong> 路径下的 <strong>test</strong> 文件夹改名成为 <strong>fool</strong>。其实 <strong>mv</strong> 命令具体理解应该把 第一个参数路径下的文件移动到第二个参数的路径并且以第二个参数为名字。</p>
 <ul>
+<li><strong>Ctrl + c</strong> 中断信号</li>
+</ul>
+<p>&nbsp;快捷键 Ctrl + c 是能立即中断我们正在执行的 <strong>命令/操作</strong>，或者执行的程序陷入死循环的时候使用，很多时候进入某些程序不知道如何退出也可以试试这个快捷键。</p>
+<ul>
 <li>ps 命令</li>
 </ul>
 <p>&nbsp;ps 命令是能查看当前进程的命令，执行 <code>ps -e</code>能看见终端列出一个列表，这个列表的第一行是进程的 pid，第二行是 tty（具体我也没有去理解），第三行是 time ，运行时间。第四行是 cmd ，运行使用的命令，但是 <code>ps -e</code>展示的命令行是没有具体参数的，如需更详细的信息可以使用 <code>ps -ef</code>。</p>
@@ -162,7 +166,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://xiao-po.github.io/2017/05/06/linux服务器（一）/" data-id="cj2dbni88000e1sun1kcaxscg" class="article-share-link">Share</a>
+      <a data-url="https://xiao-po.github.io/2017/05/06/linux服务器（一）/" data-id="cj2dbp9zf0000uountty59xue" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/build/">build</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/搭建/">搭建</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网页服务器/">网页服务器</a></li></ul>
@@ -172,6 +176,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2017/05/08/linux服务器（二）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          从零开始的Linux服务器使用(二)
+        
+      </div>
+    </a>
   
   
     <a href="/2017/05/06/hexo-安装排错/" id="article-nav-older" class="article-nav-link-wrap">
@@ -195,7 +208,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/build/">build</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/debug/">debug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/排错/">排错</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/搭建/">搭建</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网页服务器/">网页服务器</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySql/">MySql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/build/">build</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/debug/">debug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mariaDB/">mariaDB</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/排错/">排错</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/搭建/">搭建</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网页服务器/">网页服务器</a></li></ul>
     </div>
   </div>
 
@@ -205,7 +218,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/build/" style="font-size: 20px;">build</a> <a href="/tags/debug/" style="font-size: 10px;">debug</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/排错/" style="font-size: 10px;">排错</a> <a href="/tags/搭建/" style="font-size: 20px;">搭建</a> <a href="/tags/网页服务器/" style="font-size: 10px;">网页服务器</a>
+      <a href="/tags/MySql/" style="font-size: 10px;">MySql</a> <a href="/tags/build/" style="font-size: 20px;">build</a> <a href="/tags/debug/" style="font-size: 10px;">debug</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/mariaDB/" style="font-size: 10px;">mariaDB</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/排错/" style="font-size: 10px;">排错</a> <a href="/tags/搭建/" style="font-size: 20px;">搭建</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a> <a href="/tags/网页服务器/" style="font-size: 15px;">网页服务器</a>
     </div>
   </div>
 
@@ -225,6 +238,14 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/05/08/linux服务器(三)/">从零开始的Linux服务器使用(三)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/08/linux服务器（二）/">从零开始的Linux服务器使用(二)</a>
+          </li>
         
           <li>
             <a href="/2017/05/06/linux服务器（一）/">从零开始的Linux服务器使用(一)</a>

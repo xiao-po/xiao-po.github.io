@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>从零开始的Linux服务器使用(二) | XiaoPo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="&amp;nbsp;上一个章节我们学习了使用服务器的安装和基本文件命令的使用。那么这个章节来试试学习安装一些必要的东西和命令。 &amp;nbsp;因为基于个人了解，如果有错误之处联系本人，本人一定会纠正的。">
+<meta name="keywords" content="linux,搭建,build,网页服务器,nginx">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从零开始的Linux服务器使用(二)">
+<meta property="og:url" content="https://xiao-po.github.io/2017/05/08/linux服务器（二）/index.html">
+<meta property="og:site_name" content="XiaoPo">
+<meta property="og:description" content="&amp;nbsp;上一个章节我们学习了使用服务器的安装和基本文件命令的使用。那么这个章节来试试学习安装一些必要的东西和命令。 &amp;nbsp;因为基于个人了解，如果有错误之处联系本人，本人一定会纠正的。">
+<meta property="og:updated_time" content="2017-05-08T11:44:26.201Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="从零开始的Linux服务器使用(二)">
+<meta name="twitter:description" content="&amp;nbsp;上一个章节我们学习了使用服务器的安装和基本文件命令的使用。那么这个章节来试试学习安装一些必要的东西和命令。 &amp;nbsp;因为基于个人了解，如果有错误之处联系本人，本人一定会纠正的。">
+  
+    <link rel="alternate" href="/atom.xml" title="XiaoPo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">XiaoPo</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">定期分享学习文章，顺带喜好音乐也是会推荐的。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://xiao-po.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-linux服务器（二）" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/08/linux服务器（二）/" class="article-date">
+  <time datetime="2017-05-08T10:16:53.100Z" itemprop="datePublished">2017-05-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      从零开始的Linux服务器使用(二)
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&nbsp;上一个章节我们学习了使用服务器的安装和基本文件命令的使用。那么这个章节来试试学习安装一些必要的东西和命令。</p>
+<p>&nbsp;因为基于个人了解，如果有错误之处联系本人，本人一定会纠正的。</p>
+<a id="more"></a>
+<p>&nbsp;上一个章节介绍了如何使用 Linux ，和基本的文件命令，这个章节我们就可以开始谈谈如何进行做一个简单的静态网页服务器。</p>
+<p>&nbsp;有些人可能有疑问为什么这么快，实际上 Linux 并没有大家想象的那么复杂，对 Linux 的使用来说，初学者需要掌握的是基础的文件命令和一些你需要配置的软件的使用。</p>
+<h2 id="yum-命令"><a href="#yum-命令" class="headerlink" title="yum 命令"></a><strong>yum</strong> 命令</h2><p>yum 命令全名是  <strong>Yellow dog Updater, Modified</strong> 。一个基于 <strong>RPM</strong> 包管理的字符前端软件包管理器。能够从指定的服务器自动下载 RPM 包并且安装，可以处理依赖性关系，并且一次安装所有依赖的软件包，无须繁琐地一次次下载、安装。（源自 <a href="https://zh.wikipedia.org/wiki/Yellowdog_Updater,_Modified" target="_blank" rel="external">WIKI</a> ）（<a href="http://baike.baidu.com/item/yum" target="_blank" rel="external">百度百科</a>）</p>
+<p>我们将使用这个命令去安装我们所需要的软件。安装软件的方法除此以外其实还可以采取编译，但是我们看看介绍的文字，其中有个 “<strong>依赖</strong>” 二字，所以安装软件不是直接安装就能用的，必须处理依赖也环境设置，这个软件将自动的帮我们配置好。（<a href="http://www.runoob.com/linux/linux-yum.html" target="_blank" rel="external">yum 基本的命令操作</a>）</p>
+<h2 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a><strong>Nginx</strong></h2><p>Nginx（发音同engine x）是一个网页服务器，它能反向代理<strong>HTTP</strong>, <strong>HTTPS</strong>, <strong>SMTP</strong>, <strong>POP3</strong>, <strong>IMAP</strong>的协议链接，以及一个<strong>负载均衡器</strong>和一个<strong>HTTP缓存</strong>。（源自 <a href="https://zh.wikipedia.org/wiki/Nginx" target="_blank" rel="external">WIKI</a> ）（<a href="http://baike.baidu.com/item/nginx" target="_blank" rel="external">百度百科</a>）</p>
+<p>nginx已经成为了大多数人构建网页服务器的首选了，我们就将以 nginx 作为静态网站的服务器，去实现搭建我们的静态网站。</p>
+<h3 id="开始安装"><a href="#开始安装" class="headerlink" title="开始安装"></a>开始安装</h3><p>我们打开 Xshell 远程登录我们的服务器，输入命令</p>
+<pre><code>yum install nginx
+</code></pre><p>然后等待 yum 更新数据并且下载。然后我们能看见一个表格和并且停下来提示输入 Y/N ，这是表示是否安装这个程序，此时我们输入 <strong>Y</strong> 。就能开始安装 nginx 。（如果在这条命令最后加上 <code>-y</code>的话，就能省去我们输入 Y/N的步骤）</p>
+<p>安装完毕的话我们先执行一下 <code>nginx -V</code>查看 nginx 的版本和相关的信息，查看一下是否安装成功，这个信息涉及到我们 nginx 使用了多少模块和多少功能，这个是后话，因为 nginx 如果需要自定义编辑功能和部分更新的话涉及到需要编译使用，基础功能我们只需要默认配置就好了。</p>
+<h3 id="创建网站根目录"><a href="#创建网站根目录" class="headerlink" title="创建网站根目录"></a>创建网站根目录</h3><p>我们在第一章节介绍了安装 <strong>Winscp</strong> ，那么这个时候这个软件就能起作用了。</p>
+<p>打开 Winscp 并且输入服务器的 IP 和 root 用户的账号和密码。登录服务器并且能读取服务器的文件结构目录。我们先在服务器创建目录 <strong>/www/html</strong> 。然后通过 Winscp 把文件拖进那个目录，就能完成对文件的上传。</p>
+<h3 id="nginx-配置"><a href="#nginx-配置" class="headerlink" title="nginx 配置"></a>nginx 配置</h3><p>在配置之前我们先执行命令 <code>nginx</code>，启动 nginx 服务器程序。然后我们去浏览器输入我们的服务器 IP ，我们能看见 nginx 的默认主页，这意味着我们的服务器已经安装成功并且正常运行了，但是我们所搭建的网站要被运行的话，是需要针对相关的配置文件进行设置的。</p>
+<p>然后我们执行命令 <code>whereis nginx</code>，<strong>whereis</strong> 命令能帮我们找出相关文件的所在目录，我们可以依靠这个去寻找以后我们安装的程序目录，但是因为列出来的往往不是一个目录，我就先说明一下我们的 nginx 配置所在位置是 /etc/nginx/nginx.conf 。</p>
+<p>这个时候我们去 Winscp 打开这个文件， Winscp 能在线编辑，相比在窗口用 vi 命令编辑更为简单。同时使用快捷键 Ctrl + s 是保存。</p>
+<p>以下是默认的 nginx 配置文件，为了方便配置。我们并不需要修改多少配置，只是简单的对网站根目录设置就 OK 了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div></pre></td><td class="code"><pre><div class="line"># For more information on configuration, see:</div><div class="line">#   * Official English Documentation: http://nginx.org/en/docs/</div><div class="line"></div><div class="line">user nginx; # 定义Nginx运行的用户和用户组</div><div class="line">worker_processes auto; # 工作线程配置</div><div class="line">error_log /var/log/nginx/error.log; # 错误日志路径</div><div class="line">pid /run/nginx.pid; # 进程文件</div><div class="line"></div><div class="line"># Load dynamic modules. See /usr/share/nginx/README.dynamic.</div><div class="line">include /usr/share/nginx/modules/*.conf;</div><div class="line"></div><div class="line">events &#123;</div><div class="line">    worker_connections 1024;</div><div class="line">&#125;</div><div class="line"></div><div class="line">http &#123; # http 服务器的设置</div><div class="line">    log_format  main  &apos;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &apos;</div><div class="line">                      &apos;$status $body_bytes_sent &quot;$http_referer&quot; &apos;</div><div class="line">                      &apos;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&apos;;</div><div class="line">    # nginx 记录访问记录的日志</div><div class="line">    access_log  /var/log/nginx/access.log  main;</div><div class="line"></div><div class="line">    #服务器参数相关设置，暂不做具体解析</div><div class="line">    sendfile            on; </div><div class="line">    tcp_nopush          on;</div><div class="line">    tcp_nodelay         on;</div><div class="line">    keepalive_timeout   65;</div><div class="line">    types_hash_max_size 2048;</div><div class="line"></div><div class="line">    #设定mime类型,类型由mime.type文件定义</div><div class="line">    include             /etc/nginx/mime.types;</div><div class="line">    default_type        application/octet-stream;</div><div class="line"></div><div class="line">    # Load modular configuration files from the /etc/nginx/conf.d directory.</div><div class="line">    # See http://nginx.org/en/docs/ngx_core_module.html#include</div><div class="line">    # for more information.</div><div class="line">    include /etc/nginx/conf.d/*.conf;</div><div class="line"></div><div class="line">    server &#123; #这里就是我们设置的服务器设置</div><div class="line">        #监听 80 端口。</div><div class="line">        listen       80 default_server;</div><div class="line">        listen       [::]:80 default_server;</div><div class="line">        </div><div class="line">        #设置域名信息</div><div class="line">        server_name  _;</div><div class="line"></div><div class="line">        # 网站的根目录</div><div class="line">        root         /usr/share/nginx/html;</div><div class="line"></div><div class="line">        # Load configuration files for the default server block.</div><div class="line">        include /etc/nginx/default.d/*.conf;</div><div class="line"></div><div class="line">        # location 是配置用户访问路径的， / 这是默认的主页。</div><div class="line">        location / &#123;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        # 配置错误页面</div><div class="line">        error_page 404 /404.html;</div><div class="line">            location = /40x.html &#123;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        # 配置错误页面</div><div class="line">        error_page 500 502 503 504 /50x.html;</div><div class="line">            location = /50x.html &#123;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    # 其实下面还有 https 相关的设置，但是我们不做介绍</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>以上就是相关配置文件的简单介绍。那么我们开始修改以 server 开始的配置。所有的配置都必须以 “ ; “ 结尾。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">server &#123; #这里就是我们设置的服务器设置</div><div class="line">    #监听 80 端口。</div><div class="line">    listen       80 default_server;</div><div class="line">    listen       [::]:80 default_server;</div><div class="line">    </div><div class="line">    #设置域名信息</div><div class="line">    server_name  _;</div><div class="line"></div><div class="line">    </div><div class="line">    </div><div class="line"></div><div class="line">    # Load configuration files for the default server block.</div><div class="line">    include /etc/nginx/default.d/*.conf;</div><div class="line"></div><div class="line">    # location 是配置用户访问路径的， / 这是默认的主页。</div><div class="line">    location / &#123;</div><div class="line">        # 网站的根目录</div><div class="line">        root         /www/html;</div><div class="line">        # 网站此目录的默认首页是哪个文件。</div><div class="line">        index index.html index.jsp index.htm;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    # 配置错误页面</div><div class="line">    error_page 404 /404.html;</div><div class="line">        location = /40x.html &#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    # 配置错误页面</div><div class="line">    error_page 500 502 503 504 /50x.html;</div><div class="line">        location = /50x.html &#123;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>修改完毕之后并且保存，然后进入终端（也就是 Xshell ）输入命令 <code>nginx -t</code>，查看是否有语法错误。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// 错误的信息，并且告诉哪里有语法错误。</div><div class="line">nginx: [emerg] unexpected &quot;&#125;&quot; in /etc/nginx/nginx.conf:91</div><div class="line">nginx: configuration file /etc/nginx/nginx.conf test failed</div><div class="line"></div><div class="line">// 语法无错误，可以正常使用的信息</div><div class="line">nginx: the configuration file /etc/nginx/nginx.conf syntax is ok</div><div class="line">nginx: configuration file /etc/nginx/nginx.conf test is successful</div></pre></td></tr></table></figure>
+<p>如果语法检查并没有错误的话，我们就执行命令 <code>nginx -s reload</code>，更新配置信息，需要每次我们修改的配置生效的话，都需要执行一次这个命令。</p>
+<p>然后再打开我们的网站，访问我们的服务器，是不是能正常运行了。</p>
+<p>此篇教程就这样结束了，我们已经可以实现一个简单的静态网站服务器了， Linux 的使用也并不是想象中那么的难。如果你发现本文章有不谨慎或者错误的地方，请通过邮件通知 wly19960911#gmail.com 联系我。如果需要转载的话，只需要指明出处。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://xiao-po.github.io/2017/05/08/linux服务器（二）/" data-id="cj2fz38uu000nuounvl1e5ufn" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/build/">build</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/搭建/">搭建</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网页服务器/">网页服务器</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/05/08/linux服务器(三)/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          从零开始的Linux服务器使用(三)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/05/06/linux服务器（一）/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">从零开始的Linux服务器使用(一)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySql/">MySql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/build/">build</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/debug/">debug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mariaDB/">mariaDB</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/排错/">排错</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/搭建/">搭建</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网页服务器/">网页服务器</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/MySql/" style="font-size: 10px;">MySql</a> <a href="/tags/build/" style="font-size: 20px;">build</a> <a href="/tags/debug/" style="font-size: 10px;">debug</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/mariaDB/" style="font-size: 10px;">mariaDB</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/排错/" style="font-size: 10px;">排错</a> <a href="/tags/搭建/" style="font-size: 20px;">搭建</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a> <a href="/tags/网页服务器/" style="font-size: 15px;">网页服务器</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/05/08/linux服务器(三)/">从零开始的Linux服务器使用(三)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/08/linux服务器（二）/">从零开始的Linux服务器使用(二)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/06/linux服务器（一）/">从零开始的Linux服务器使用(一)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/06/hexo-安装排错/">hexo 安装排错</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/05/first/">搭建HEXO</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 xiaopo(wly19960911#gmail.com)<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
